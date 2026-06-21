@@ -2,8 +2,7 @@
 
 from google.adk.agents import Agent
 
-from travel_concierge import MODEL
-from travel_concierge.tools.memory import memorize, recall
+from ._bootstrap import MODEL, memorize, recall
 
 
 def check_flight_status(flight_id: str) -> dict:
@@ -62,3 +61,5 @@ in_trip_agent = Agent(
     """,
     tools=[check_flight_status, get_local_tips, memorize, recall],
 )
+
+root_agent = in_trip_agent

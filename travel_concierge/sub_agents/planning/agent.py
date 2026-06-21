@@ -3,10 +3,15 @@
 from google.adk.agents import Agent
 from google.adk.tools.agent_tool import AgentTool
 
-from travel_concierge import MODEL
-from travel_concierge.tools.flights import search_flights, select_seat
-from travel_concierge.tools.hotels import search_hotels, select_room
-from travel_concierge.tools.memory import memorize, recall
+from ._bootstrap import (
+    MODEL,
+    memorize,
+    recall,
+    search_flights,
+    search_hotels,
+    select_room,
+    select_seat,
+)
 
 
 # A focused sub-agent just for building the final itinerary summary
@@ -72,3 +77,5 @@ planning_agent = Agent(
         AgentTool(agent=itinerary_agent),
     ],
 )
+
+root_agent = planning_agent

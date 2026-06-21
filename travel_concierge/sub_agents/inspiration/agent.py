@@ -2,8 +2,7 @@
 
 from google.adk.agents import Agent
 
-from travel_concierge import MODEL
-from travel_concierge.tools.memory import memorize
+from ._bootstrap import MODEL, memorize
 
 inspiration_agent = Agent(
     model=MODEL,
@@ -28,3 +27,5 @@ inspiration_agent = Agent(
     """,
     tools=[memorize],
 )
+
+root_agent = inspiration_agent
